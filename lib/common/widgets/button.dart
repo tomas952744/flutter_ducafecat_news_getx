@@ -19,10 +19,10 @@ Widget btnFlatButtonWidget({
     height: height.h,
     child: TextButton(
       style: ButtonStyle(
-        textStyle: MaterialStateProperty.all(TextStyle(
+        textStyle: WidgetStateProperty.all(TextStyle(
           fontSize: 16.sp,
         )),
-        foregroundColor: MaterialStateProperty.resolveWith(
+        foregroundColor: WidgetStateProperty.resolveWith(
           (states) {
             if (states.contains(MaterialState.focused) &&
                 !states.contains(MaterialState.pressed)) {
@@ -33,13 +33,13 @@ Widget btnFlatButtonWidget({
             return fontColor;
           },
         ),
-        backgroundColor: MaterialStateProperty.resolveWith((states) {
-          if (states.contains(MaterialState.pressed)) {
+        backgroundColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.pressed)) {
             return Colors.blue[200];
           }
           return gbColor;
         }),
-        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+        shape: WidgetStateProperty.all(RoundedRectangleBorder(
           borderRadius: Radii.k6pxRadius,
         )),
       ),
