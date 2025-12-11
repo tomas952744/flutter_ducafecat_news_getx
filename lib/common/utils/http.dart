@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter_ducafecat_news_getx/common/store/store.dart';
 import 'package:flutter_ducafecat_news_getx/common/utils/utils.dart';
 import 'package:flutter_ducafecat_news_getx/common/values/values.dart';
@@ -59,9 +60,11 @@ class HttpUtil {
 
     dio = new Dio(options);
 
-    // Cookie管理
-    CookieJar cookieJar = CookieJar();
-    dio.interceptors.add(CookieManager(cookieJar));
+    // Cookie管理（Web平台不支持）
+    if (!kIsWeb) {
+      CookieJar cookieJar = CookieJar();
+      dio.interceptors.add(CookieManager(cookieJar));
+    }
 
     // 添加拦截器
     dio.interceptors.add(InterceptorsWrapper(

@@ -43,15 +43,15 @@ dependencies:
   pull_to_refresh: ^2.0.0
 
   # toast
-  fluttertoast: ^8.0.7
+  fluttertoast: ^9.0.0
 
   # easyloading
   flutter_easyloading: ^3.0.3
 
   # http
   dio: ^5.9.0
-  dio_cookie_manager: ^2.0.0
-  cookie_jar: ^3.0.1
+  dio_cookie_manager: ^3.3.0
+  cookie_jar: ^4.0.8
 
   # 缓存
   shared_preferences: ^2.5.4
